@@ -153,6 +153,11 @@ function isOdd(x) {
 isOdd(3);
 isOdd(10);
 
+//revised isOdd()
+function isOdd(x) {
+  return isEven(x);
+}
+
 function multipleOfThree(x) {
   if (x % 3 === 0) {
     return true;
@@ -229,6 +234,24 @@ function countAllOccurences(arr) {
       }
     }
     newArr.push([tempArr[j], count]);
+  }
+  return newArr;
+}
+countAllOccurences([5, 7, 12, 5, 3, 3, 5]);
+
+//revised countAllOccurences
+function countAllOccurences(arr) {
+  let countObj = new Object();
+  for (let i = 0; i < arr.length; i++) {
+    if (countObj[arr[i]]) {
+      countObj[arr[i]] += 1;
+    } else {
+      countObj[arr[i]] = 1;
+    }
+  }
+  let newArr = [];
+  for (var key in countObj) {
+    newArr.push([key, countObj[key]]);
   }
   return newArr;
 }
